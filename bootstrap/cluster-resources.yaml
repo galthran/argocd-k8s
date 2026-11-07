@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-resources
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/galthran/argocd-k8s.git
+      revision: ""
+      files:
+      - path: bootstrap/cluster-resources/*.json
+      requeueAfterSeconds: 20
+  template:
+    metadata:
+      namespace: argocd
+      name: 'cluster-resources-{{name}}'
+      labels:
+        app.kubernetes.io/managed-by: argocd-autopilot
+        app.kubernetes.io/name: 'cluster-resources-{{name}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/galthran/argocd-k8s.git
+        path: 'bootstrap/cluster-resources/{{name}}'
+        targetRevision: ""
+      destination:
+        server: '{{server}}'
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: false
+          allowEmpty: true
+      ignoreDifferences:
+      - group: argoproj.io
+        kind: Application
+        jsonPointers:
+        - /status
+  syncPolicy:
+    preserveResourcesOnDeletion: true

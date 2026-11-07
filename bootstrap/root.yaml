@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root
+  namespace: argocd
+  labels:
+    app.kubernetes.io/managed-by: argocd-autopilot
+    app.kubernetes.io/name: root
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/galthran/argocd-k8s.git
+    path: projects
+    targetRevision: ""
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+      allowEmpty: true
+    syncOptions:
+    - allowEmpty=true
+  ignoreDifferences:
+  - group: argoproj.io
+    kind: Application
+    jsonPointers:
+    - /status
