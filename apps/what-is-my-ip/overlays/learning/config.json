@@ -1,0 +1,11 @@
+{
+  "appName": "what-is-my-ip",
+  "userGivenName": "what-is-my-ip",
+  "destNamespace": "what-is-my-ip",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/what-is-my-ip/overlays/learning",
+  "srcRepoURL": "https://github.com/galthran/argocd-k8s.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
