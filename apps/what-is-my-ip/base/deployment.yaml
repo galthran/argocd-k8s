@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: what-is-my-ip
+  labels:
+    app: what-is-my-ip
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: what-is-my-ip
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: what-is-my-ip
+    spec:
+      containers:
+        - name: what-is-my-ip
+          image: nerdneils/what-is-my-ip:latest
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 300m
+              memory: 256Mi
+          ports:
+            - containerPort: 8090
+              protocol: TCP
