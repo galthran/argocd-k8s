@@ -1,0 +1,11 @@
+{
+  "appName": "traefik",
+  "userGivenName": "traefik",
+  "destNamespace": "traefik",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/traefik/overlays/learning",
+  "srcRepoURL": "https://github.com/galthran/argocd-k8s.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
