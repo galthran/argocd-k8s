@@ -1,0 +1,11 @@
+{
+  "appName": "adminer",
+  "userGivenName": "adminer",
+  "destNamespace": "adminer",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/adminer/overlays/learning",
+  "srcRepoURL": "https://github.com/galthran/argocd-k8s.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
