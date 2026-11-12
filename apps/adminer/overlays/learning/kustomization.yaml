@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: adminer
 resources:
 - ../../base
+- adminer-ir.yaml
