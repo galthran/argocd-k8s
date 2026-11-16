@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: nginx-ir
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`nginx.stonehold.local`)
+      services:
+        - name: nginx
+          namespace: nginx
+          kind: Service
+          port: 80
