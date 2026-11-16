@@ -1,0 +1,11 @@
+{
+  "appName": "nginx",
+  "userGivenName": "nginx",
+  "destNamespace": "nginx",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/nginx/overlays/learning",
+  "srcRepoURL": "https://github.com/galthran/argocd-k8s.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
