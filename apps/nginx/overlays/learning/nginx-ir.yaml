@@ -13,3 +13,4 @@ spec:
           namespace: nginx
           kind: Service
           port: 80
+  tls: {}
