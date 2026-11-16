@@ -30,5 +30,19 @@ spec:
               cpu: 500m
               memory: 500Mi
           ports:
-            - containerPort: 80
+            - name: http
+              containerPort: 80
               protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 2
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 20
+            failureThreshold: 3
