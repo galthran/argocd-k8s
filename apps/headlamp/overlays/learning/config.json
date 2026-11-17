@@ -1,0 +1,11 @@
+{
+  "appName": "headlamp",
+  "userGivenName": "headlamp",
+  "destNamespace": "headlamp",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/headlamp/overlays/learning",
+  "srcRepoURL": "https://github.com/galthran/argocd-k8s.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
