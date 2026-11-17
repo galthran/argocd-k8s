@@ -13,3 +13,4 @@ spec:
           namespace: adminer
           kind: Service
           port: 8080
+  tls: {}
