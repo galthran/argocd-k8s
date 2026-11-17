@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: headlamp-ir
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`headlamp.stonehold.local`)
+      services:
+        - name: headlamp
+          namespace: headlamp
+          kind: Service
+          port: 80
+  tls: {}
