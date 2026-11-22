@@ -1,0 +1,24 @@
+# Only overrides of the chart defaults; full list:
+# https://github.com/longhorn/charts/blob/longhorn-1.13.0/charts/longhorn/values.yaml
+
+# Required for GitOps installs (Argo CD does not run Helm pre-upgrade hooks)
+preUpgradeChecker:
+  jobEnabled: false
+
+csi:
+  # MicroK8s runs kubelet from the snap, not /var/lib/kubelet
+  kubeletRootDir: /var/snap/microk8s/common/var/lib/kubelet
+
+persistence:
+  # keep microk8s-hostpath as the default StorageClass for now;
+  # PVCs opt in with storageClassName: longhorn
+  defaultClass: false
+  # 3 nodes -> one replica on each
+  defaultClassReplicaCount: 3
+  # keep the data when a PVC is deleted
+  reclaimPolicy: Retain
+
+defaultSettings:
+  defaultReplicaCount: 3
+  # must be set to "true" by hand before Longhorn can be uninstalled
+  deletingConfirmationFlag: false

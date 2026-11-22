@@ -1,0 +1,11 @@
+{
+  "appName": "longhorn",
+  "userGivenName": "longhorn",
+  "destNamespace": "longhorn-system",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/longhorn/overlays/learning",
+  "srcRepoURL": "https://github.com/galthran/argocd-k8s.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
