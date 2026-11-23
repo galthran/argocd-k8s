@@ -1,0 +1,11 @@
+{
+  "appName": "external-secrets",
+  "userGivenName": "external-secrets",
+  "destNamespace": "external-secrets",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/external-secrets/overlays/learning",
+  "srcRepoURL": "https://github.com/galthran/argocd-k8s.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
