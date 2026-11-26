@@ -4,3 +4,5 @@ metadata:
   name: argocd
   annotations:
     argocd.argoproj.io/sync-options: Prune=false
+  labels:
+    stonehold/allowed-to-deploy-cluster-secrets: "true"

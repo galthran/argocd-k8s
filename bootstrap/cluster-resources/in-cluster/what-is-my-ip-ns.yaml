@@ -5,5 +5,7 @@ metadata:
     argocd.argoproj.io/sync-options: Prune=false
   creationTimestamp: null
   name: what-is-my-ip
+  labels:
+    stonehold/allowed-to-deploy-cluster-secrets: "true"
 spec: {}
 status: {}
